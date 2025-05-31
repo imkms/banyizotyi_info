@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Index Page</title>
+  <link rel="icon" type="image/png" href="/imgs/logo.png" />
+  <title>BanyiZotyi</title>
   <style>
     * {
       box-sizing: border-box;
@@ -27,12 +28,26 @@
       border-radius: 15px;
       box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
       text-align: center;
+      max-width: 400px;
     }
 
-    h1 {
+    .logo {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       margin-bottom: 30px;
-      font-size: 2.5rem;
-      color: #ffffff;
+    }
+
+    .logo img {
+      width: 100px;
+      height: auto;
+      margin-bottom: 10px;
+    }
+
+    .site-name {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #fff;
     }
 
     .links a {
@@ -54,7 +69,10 @@
 </head>
 <body>
   <div class="container">
-    <h1>Témák</h1>
+    <div class="logo">
+      <img src="/imgs/logo.png" alt="Site Logo" />
+      <div class="site-name">BanyiZotyi</div>
+    </div>
     <div class="links">
       <a href="linux.html">Linux</a>
       <a href="windows.html">Windows</a>
