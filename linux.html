@@ -197,63 +197,206 @@
     <p>Ez az oldal a Linux témakört mutatja be. Itt találhatók információk a Linux operációs rendszerről, parancsokról, disztribúciókról, és egyéb hasznos tudnivalókról.</p>
 
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: DHCP szerver telepítése</h2>
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        sudo apt update
+        sudo apt install isc-dhcp-server -y
       </div>
     </div>
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: DHCP konfigurációs fájl szerkesztése</h2>
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+            sudo nano /etc/dhcp/dhcpd.conf<br>
+            subnet 192.168.0.0 netmask 255.255.255.0 {
+            range 192.168.0.100 192.168.0.200;
+            option routers 192.168.0.54;
+            option subnet-mask 255.255.255.0;
+            option domain-name-servers 192.168.0.54, 8.8.8.8;
+            }
       </div>
     </div>
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: DHCP szerver interfész beállítása</h2>
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        sudo nano /etc/default/isc-dhcp-server
+        (Cseréld le eth0-t a megfelelő interfésznévre, ha más pl. enp0s3.)
+        INTERFACESv4="eth0" 
       </div>
     </div>
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: DHCP szolgáltatás újraindítása:</h2>
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        sudo systemctl restart isc-dhcp-server
+        sudo systemctl status isc-dhcp-server
       </div>
     </div>
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Könyvtárszerkezet létrehozása</h2>
+      <img src="imgs/linux/konyvt.png" alt="Feladat képe">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        cd ~
+        mkdir -p nyiszi/nyuszi
+        mkdir -p nyiszi/nyaszi/piszi
+        mkdir -p nyiszi/nyaszi/puszi/{mici,maci,muci}
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: ebed.txt létrehozása a nyuszi könyvtárban, tartalommal</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        echo "megeszlek" > nyiszi/nyuszi/ebed.txt
+        cat nyiszi/nyuszi/ebed.txt
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: ebed.txt másolása a piszi könyvtárba</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        cp nyiszi/nyuszi/ebed.txt nyiszi/nyaszi/piszi/
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: uzsonna.txt létrehozása a mici könyvtárban, majd áthelyezése a maci könyvtárba</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        echo "méz" > nyiszi/nyaszi/puszi/mici/uzsonna.txt
+        mv nyiszi/nyaszi/puszi/mici/uzsonna.txt nyiszi/nyaszi/puszi/maci/
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: nyugger csoport létrehozása</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo groupadd nyugger
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: vizsgazo felhasználó hozzáadása a nyugger csoporthoz</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo usermod -aG nyugger vizsgazo
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: A vizsga könyvtár csoportjának átadása a nyugger csoportnak</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo chown :nyugger vizsga
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Jogosultságok beállítása: tulajdonosnak és csoportnak minden jog, másnak semmi</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo chmod 770 vizsga
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Számítás alapja</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A 770 jog (engedély) három számjegyből áll:
+
+        Az első szám a tulajdonos (user) jogait adja meg,
+        a második a csoport (group) jogait,
+        a harmadik pedig mindenki másét (others).<br>
+        Minden jog egy számértéket kap:
+
+        read (olvasás) = 4
+        write (írás) = 2
+        execute (végrehajtás) = 1
+        A számjegyek összege adja az engedélyt.
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Felhasználó létrehozása a megadott adatokkal</h2>
+      <img src="imgs/linux/elek.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo useradd -m -c "Vicc Elek,102,12-23-33,244-455-555,informatikus" elek
+        echo 'elek:P@ssw0rd' <br>
+        Ellenőrzés:
+        getent passwd elek
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Könyvtárszerkezet létrehozása az elek felhasználó home könyvtárában</h2>
+      <img src="imgs/linux/home.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo -u elek mkdir -p /home/elek/sand/{feladat,gyerek/{fiu,lany,egyeb},box}
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: A jatek.txt fájl létrehozása a feladat könyvtárban, tartalma: tarsasjatek</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        echo "tarsasjatek" | sudo -u elek tee /home/elek/sand/feladat/jatek.txt
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: A jatek.txt fájl másolása a box könyvtárba</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo -u elek cp /home/elek/sand/feladat/jatek.txt /home/elek/sand/box/
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: jatszotarsak csoport létrehozása, elek felhasználó hozzáadása</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo groupadd jatszotarsak
+        sudo usermod -aG jatszotarsak elek
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: vizsga könyvtár tulajdonjogának átadása az elek felhasználónak</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo chown elek:elek /home/elek/vizsga
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: jatek.txt (/home/elek/box/jatek.txt) fájl jogosultságainak beállítása</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo chmod 644 /home/elek/box/jatek.txt
+        sudo chown elek: /home/elek/box/jatek.txt
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: jatek.txt (/home/elek/sand/feladat/jatek.txt) fájl beállítása a jatszotarsak csoporthoz</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo chown elek:jatszotarsak /home/elek/sand/feladat/jatek.txt
+        sudo chmod 770 /home/elek/sand/feladat/jatek.txt
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Apache telepítése</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo apt update
+        sudo apt install apache2 -y
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Apache elindítása</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo systemctl start apache2
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Apache beállítása automatikus indulásra rendszerindításkor</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        sudo systemctl enable apache2
       </div>
     </div>
   </div>
