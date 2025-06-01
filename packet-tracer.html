@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <link rel="icon" type="image/png" href="/imgs/logo.png" />
-  <title>Windows Page</title>
+  <title>Packet Tracer Page</title>
   <style>
     * {
       box-sizing: border-box;
@@ -180,7 +180,9 @@
     #scrollTopBtn:hover {
       background-color: #5635af;
     }
-
+    a{
+      color:white;
+    }
   </style>
 </head>
 <body>
@@ -223,39 +225,43 @@
     <p>Ez az oldal a Packet Tracer témakört mutatja be. Itt találhatók információk a Packet Tracer rendszerről, parancsokról, disztribúciókról, és egyéb hasznos tudnivalókról.</p>
     
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Forgalomirányítási alapok – Statikus útvonalak</h2>
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+          Beállítás a következő ugrás megadásával: 
+          ip route 192.168.30.0 255.255.255.0 192.168.20.2<br>
+          Beállítás a kimenő interfész megadásával:
+          ip route 192.168.30.0 255.255.255.0 s0/0/0<br>
+          Alapértelmezett útvonal beállítása:
+          ip route 0.0.0.0 0.0.0.0 {IP-cím | kimenő-interfész}<br>
+          <a href="https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_06_-_statikus_forgalomiranyitas" target="_blank">Többet a Statikus forgalomirányításról</a>
+          <a href="https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_07_-_dinamikus_forgalomiranyitas" target="_blank">Többet a Dinamikus forgalomirányításról</a>
+          <a href="https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_05_-_forgalomiranyitas_vlan-ok_koezoett" target="_blank">Többet a Vlanok közötti forgalomirányításról</a>
+          <a href="https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_08_-_egyterueletu_ospf" target="_blank">Többet az OSPF-ről(parancsok az oldal alja fele)</a>
       </div>
     </div>
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>DHCP szerver konfiguráció</h2>
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+       	ip dhcp excluded-address 192.168.20.250 192.168.20.254(Mit zárjunk ki mit ne osszunk ki)
+	      ip dhcp pool SULI-LAN(DHCP pool neve)
+            network 192.168.20.0 255.255.255.0 (Miből ossza ki az IP-címet milyen hálózatból)
+            default-router 192.168.20.1(Az alapértelmezett átjáró)
+            dns-server 8.8.8.8(DNS szerver címe)<br>
+        <a href="https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_10_-_dhcp" target="_blank">Többet a DHCP-ről</a>    
       </div>
     </div>
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
+      <h2>ACL – Csak rendszergazda PC férhet hozzá a SULI switchhez</h2>
       <img src="linux-feladat.png" alt="Feladat képe">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        access-list 10 permit host 192.168.10.100 (Egydül a megadott IP-címről enged be üzenetet)
+        access-list 10 deny any (Minden mást elutasít)
+        interface Serial0/0/0
+        ip access-group 10 out (out vagy in ,out a bejövő parancsokat szűri az in pedig a belülről kimenőt )<br>
+        <a href="https://szit.hu/doku.php?id=oktatas:halozat:cisco_szerint_a_halozat:fejezet_09_-_acl" target="_blank">Többet az ACL-ekről</a>
       </div>
     </div>
     <div class="task-box">
