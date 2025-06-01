@@ -88,6 +88,7 @@
     }
 
     .container {
+      position: relative;
       background: rgba(0, 0, 0, 0.418);
       padding: 40px 60px;
       border-radius: 15px;
@@ -96,6 +97,7 @@
       margin: 100px auto;
       max-width: 800px;
     }
+
 
     h1 {
       margin-bottom: 20px;
@@ -196,69 +198,91 @@
   </header>
 
   <div class="container">
+    <button id="ipCalcBtn" style="position: absolute; top: 20px; right: 20px; background-color: rgba(0, 0, 0, 0.418); color: white; border: none; padding: 10px 16px; border-radius: 10px; cursor: pointer; font-size: 18px;">📡</button>
+
+    <div id="ipCalcModal" style="display:none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); background: rgba(0, 0, 0, 0.95); color: white; padding: 25px; border-radius: 15px; z-index: 1000; width: 320px; font-family: 'Segoe UI', sans-serif;">
+      <h3 style="margin-bottom: 15px;">IP Kalkulátor</h3>
+
+      <label for="ipCount">Hány IP cím kell?</label>
+      <input type="number" id="ipCount" min="1" placeholder="pl. 20" style="width:100%; padding:8px; margin-bottom:15px; border-radius: 6px; border: none;">
+
+      <label for="ipBase">Milyen IP tartományból?</label>
+      <input type="text" id="ipBase" placeholder="pl. 10.0.0.0" style="width:100%; padding:8px; margin-bottom:15px; border-radius: 6px; border: none;">
+
+      <label for="ipPrefix">Alap prefix?</label>
+      <input type="number" id="ipPrefix" min="1" max="32" placeholder="pl. 24" style="width:100%; padding:8px; margin-bottom:15px; border-radius: 6px; border: none;">
+
+      <button onclick="calculateIP()" style="background-color: #4b29a8; color:white; border:none; padding:10px; width:100%; border-radius:8px; margin-bottom:15px;">Számol</button>
+      
+      <div id="ipResult" style="font-size:0.95rem; white-space:pre-wrap; background: rgba(255,255,255,0.08); padding: 10px; border-radius: 8px;"></div>
+      
+      <button onclick="document.getElementById('ipCalcModal').style.display='none'" style="margin-top:15px; background-color: rgba(255,255,255,0.1); border:none; color:white; padding:8px 12px; border-radius:6px;">Bezár</button>
+    </div>
+
     <h1>Packet Tracer Page</h1>
     <p>Ez az oldal a Packet Tracer témakört mutatja be. Itt találhatók információk a Packet Tracer rendszerről, parancsokról, disztribúciókról, és egyéb hasznos tudnivalókról.</p>
+    
+    <div class="task-box">
+      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
+      <img src="linux-feladat.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A megoldás:
+        <br>
+        1. `touch fajl.txt` – fájl létrehozása
+        <br>
+        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
+      <img src="linux-feladat.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A megoldás:
+        <br>
+        1. `touch fajl.txt` – fájl létrehozása
+        <br>
+        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
+      <img src="linux-feladat.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A megoldás:
+        <br>
+        1. `touch fajl.txt` – fájl létrehozása
+        <br>
+        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
+      <img src="linux-feladat.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A megoldás:
+        <br>
+        1. `touch fajl.txt` – fájl létrehozása
+        <br>
+        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+      </div>
+    </div>
+    <div class="task-box">
+      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
+      <img src="linux-feladat.png" alt="Feladat képe">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A megoldás:
+        <br>
+        1. `touch fajl.txt` – fájl létrehozása
+        <br>
+        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+      </div>
+    </div>
 
-    <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
-      <div class="solution">
-        <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
-      </div>
-    </div>
-    <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
-      <div class="solution">
-        <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
-      </div>
-    </div>
-    <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
-      <div class="solution">
-        <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
-      </div>
-    </div>
-    <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
-      <div class="solution">
-        <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
-      </div>
-    </div>
-    <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
-      <div class="solution">
-        <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
-      </div>
-    </div>
   </div>
   
 <button id="scrollTopBtn" title="Ugrás a tetejére">↑</button>
@@ -290,6 +314,59 @@
       behavior: "smooth"
     });
   });
+  document.getElementById("ipCalcBtn").addEventListener("click", () => {
+  document.getElementById("ipCalcModal").style.display = "block";
+});
+
+  // IP kalkulátor megnyitása
+  document.getElementById("ipCalcBtn").addEventListener("click", () => {
+    document.getElementById("ipCalcModal").style.display = "block";
+  });
+
+  // IP string -> integer
+  function ipToInt(ip) {
+    return ip.split('.').reduce((acc, val) => (acc << 8) + parseInt(val), 0);
+  }
+
+  // Integer -> IP string
+  function intToIp(int) {
+    return [(int >>> 24), (int >> 16 & 255), (int >> 8 & 255), (int & 255)].join('.');
+  }
+
+  // IP kalkulátor számolás
+  function calculateIP() {
+    const count = parseInt(document.getElementById("ipCount").value);
+    const baseIP = document.getElementById("ipBase").value.trim();
+    const basePrefix = parseInt(document.getElementById("ipPrefix").value);
+    const resultBox = document.getElementById("ipResult");
+
+    if (!count || !baseIP || isNaN(basePrefix)) {
+      resultBox.textContent = "❗ Kérlek töltsd ki az összes mezőt helyesen.";
+      return;
+    }
+
+    const needed = count + 2;
+    let bits = 0;
+    while ((1 << bits) < needed) bits++;
+    const newPrefix = 32 - bits;
+    const totalHosts = 1 << bits;
+
+    const baseInt = ipToInt(baseIP);
+    const mask = ~((1 << (32 - basePrefix)) - 1);
+    const network = baseInt & mask;
+
+    const first = network + 1;
+    const last = network + totalHosts - 2;
+    const broadcast = network + totalHosts - 1;
+
+    resultBox.textContent = `
+Szükséges új prefix: /${newPrefix}
+Hálózat címe: ${intToIp(network)}
+Első kiosztható: ${intToIp(first)}
+Utolsó kiosztható: ${intToIp(last)}
+Broadcast: ${intToIp(broadcast)}
+    `;
+  }
 </script>
 </body>
 </html>
