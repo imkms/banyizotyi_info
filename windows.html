@@ -30,6 +30,7 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
+      z-index: 999;
     }
 
     .logo-container {
@@ -95,6 +96,7 @@
       text-align: center;
       margin: 100px auto;
       max-width: 800px;
+      z-index: 1;
     }
 
     h1 {
@@ -123,10 +125,13 @@
     }
 
     .task-box img {
-      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
       border-radius: 10px;
       margin-bottom: 15px;
       border: 2px solid rgba(255, 255, 255, 0.267);
+      display: block;
     }
 
     .solution {
@@ -162,7 +167,7 @@
       bottom: 30px;
       right: 30px;
       z-index: 100;
-      background-color: #4b29a8;
+      background-color: #391d6494;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -198,65 +203,177 @@
   <div class="container">
     <h1>Windows Page</h1>
     <p>Ez az oldal a Windows témakört mutatja be. Itt találhatók információk a Windows operációs rendszerről, parancsokról, disztribúciókról, és egyéb hasznos tudnivalókról.</p>
+    <div class="task-box">
+      <h2>Feladat: IP-cím beállítása, gépnév módosítása</h2>
+      <img src="/imgs/windows/ip_beallitas.png" alt="IP beállítás képernyő">
+      <img src="/imgs/windows/szamitogep_neve.png" alt="Számítógép neve">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Vezérlőpult → Hálózati és megosztási központ → Adapterbeállítások módosítása
+        2. Ethernet → Tulajdonságok → Internet Protocol 4 (TCP/IPv4)
+        3. Állítsd be:
+        - IP-cím: 192.168.50.1
+        - Alhálózati maszk: 255.255.255.0
+        - Alapértelmezett átjáró: 192.168.50.254
+        - DNS: 127.0.0.1 és 8.8.8.8
+        4. Gépház → Rendszer → Név → Számítógép átnevezése: SandBox → újraindítás
+      </div>
+    </div>
 
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Szerepkörök telepítése</h2>
+      <img src="/imgs/windows/szolgaltatasok_telepitve.png" alt="Szolgáltatások telepítve">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        Kiszolgálókezelő → Szerepkörök és szolgáltatások hozzáadása:
+        - Active Directory tartományi szolgáltatások
+        - DNS-kiszolgáló
+        - DHCP-kiszolgáló
+        → Tovább → Telepítés
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Tartományvezérlővé előléptetés</h2>
+      <img src="/imgs/windows/uj_erdo.png" alt="Új erdő felvétele">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        A telepítés után:
+        - Kattints: „A kiszolgáló előléptetése tartományvezérlővé”
+        - Új erdő létrehozása: box.local
+        - DSRM-jelszó: P@ssw0rd
+        - Egyéb beállítás: alapértelmezett
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: MMC konzol készítése</h2>
+      <img src="/imgs/windows/mmc_eredmeny.png" alt="MMC-ben felvett szolgáltatások figyelésre">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. Parancssor → mmc → OK
+        2. Fájl → Beépülő modul hozzáadása:
+        - Active Directory – felhasználók és számítógépek
+        - DHCP
+        - DNS
+        3. Fájl → Mentés másként → Asztalra: DNS-DHCP.msc
       </div>
     </div>
+     
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Szervezeti egységek létrehozása</h2>
+      <img src="/imgs/windows/szervezeti_egyseg_letrehozas.png" alt="DNS beállítások">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. Nyisd meg az Active Directory – felhasználók és számítógépek konzolt.  
+        2. Kattints jobb gombbal a vizsga.local tartományra → Új → Szervezeti egység.  
+        3. Add meg a neveket: vizsgaszervezők és informatika.
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Felhasználó létrehozása</h2>
+      <img src="/imgs/windows/felhasznalo_letrehozva.png" alt="DNS beállítások">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. A nyiff nevű szervezeti egységen kattints jobb gombbal → Új → Felhasználó.  
+        2. Vezetéknév: Vicc, Keresztnév: Elek, Bejelentkezési név: elek.  
+        3. Jelszó: P@ssw0rd  
+        4. Jelöld be: „A felhasználónak nem kell megváltoztatnia a jelszót” és „A jelszó soha ne járjon le”.
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Csoportok létrehozása</h2>
+      <img src="/imgs/windows/csoportok1.png" alt="DNS beállítások">
+      <img src="/imgs/windows/csoportok2.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. A nyiff nevű szervezeti egységen kattints jobb gombbal → Új → Csoport.  
+        2. Hozd létre:  
+          - nyuff (Globális, Biztonsági)  
+          - mail (Tartományon belüli, Terjesztési)
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Csoporttagságok beállítása</h2>
+      <img src="/imgs/windows/csoporttagsag1.png" alt="DNS beállítások">
+      <img src="/imgs/windows/csoporttagsag2.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Nyisd meg a Vicc Elek felhasználót → "A következő tagja" fül → Hozzáadás → nyuff.  
+        2. Nyisd meg a nyuff csoportot → "A következő tagja" fül → Hozzáadás → mail.
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Chrome telepítés GPO-val</h2>
+      <img src="/imgs/windows/gpo1.png" alt="DNS beállítások">
+      <img src="/imgs/windows/gpo2.png" alt="DNS beállítások">
+      <img src="/imgs/windows/gpo3.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Töltsd le a Google Chrome MSI fájlt.  
+        2. Másold egy megosztott mappába, pl. \\Szerver\megosztas  
+        3. GPO szerkesztő → Számítógép konfigurációja → Házirendek → Szoftverbeállítások → Szoftvertelepítés  
+        4. Új csomag → válaszd ki a .msi-t a hálózati útvonalon  
+        5. Telepítés típusa: Kötelező
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Házirend frissítése</h2>
+      <img src="/imgs/windows/gpupdate.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Nyisd meg a Parancssort vagy PowerShell-t.  
+        2. Írd be: gpupdate /force  
+        3. Nyomj Enter-t és várd meg a folyamat végét.
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: DHCP hatókör létrehozása</h2>
+      <img src="/imgs/windows/dhcp_hatokornev.png" alt="DHCP hatókör neve">
+      <img src="/imgs/windows/dhcp_cimtartomany.png" alt="DHCP címtartománya">
+      <img src="/imgs/windows/dhcp_kizart.png" alt="DHCP kizárt címei">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Server Manager → DHCP → DHCP konzol
+        2. Jobb klikk IPv4-en → Új hatókör:
+        - Név: sand
+        - IP-tartomány: 192.168.50.20 – 192.168.50.120
+        - Kizárási tartomány: 192.168.50.50 – 192.168.50.70
+        - Alhálózati maszk: 255.255.255.0
+        - Címbérlet élettartama: 12 óra
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: DHCP opciók beállítása</h2>
+      <img src="/imgs/windows/dhcp2_utvalaszto.png" alt="DHCP útválasztó">
+      <img src="/imgs/windows/dhcp2_dns.png" alt="DHCP DNS címei">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        A DHCP kiszolgálóban állítsd be:
+        - 003 Útválasztó: 192.168.50.254
+        - 006 DNS-kiszolgálók:
+        &nbsp;&nbsp;&nbsp;&nbsp;- Elsődleges: 192.168.50.1
+        &nbsp;&nbsp;&nbsp;&nbsp;- Másodlagos: 8.8.8.8
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: DNS rekord létrehozása</h2>
+      <img src="/imgs/windows/dns.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Kiszolgálókezelő → DNS → box.local zóna
+        2. Jobb klikk → Új állomás (A rekord):
+        - Név: fileserver
+        - IP-cím: 192.168.50.2
+        3. Mentés → Ellenőrzés nslookup paranccsal
       </div>
     </div>
   </div>

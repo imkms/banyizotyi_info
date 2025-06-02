@@ -30,6 +30,7 @@
       justify-content: space-between;
       position: sticky;
       top: 0;
+      z-index: 999;
     }
 
     .logo-container {
@@ -95,6 +96,7 @@
       text-align: center;
       margin: 100px auto;
       max-width: 800px;
+      z-index: 1;
     }
 
     h1 {
@@ -123,10 +125,13 @@
     }
 
     .task-box img {
-      max-width: 100%;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
       border-radius: 10px;
       margin-bottom: 15px;
       border: 2px solid rgba(255, 255, 255, 0.267);
+      display: block;
     }
 
     .solution {
@@ -162,7 +167,7 @@
       bottom: 30px;
       right: 30px;
       z-index: 100;
-      background-color: #4b29a8;
+      background-color: #391d6494;
       color: white;
       border: none;
       padding: 10px 20px;
@@ -200,63 +205,171 @@
     <p>Ez az oldal a Azure témakört mutatja be. Itt találhatók információk a Azure  rendszerről, parancsokról, disztribúciókról, és egyéb hasznos tudnivalókról.</p>
 
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: WordPress App Service létrehozása</h2>
+      <img src="/imgs/azure/wp-adatok.png" alt="Word Press létrehozása">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. Lépj be az Azure Portálra.  
+        2. Kattints az „Erőforrás létrehozása” gombra.  
+        3. Keresd meg: WordPress → válaszd a WordPress on App Service sablont.  
+        4. Erőforráscsoport neve: VIZSGA  
+        5. Régió: Nyugat-Európa  
+        6. Weboldal neve: wp-monogram.azurewebsites.net  
+        7. App Service-csomag: F1 (Free)  
+        8. MySQL adatbázis: Burstable, ingyenes  
+        9. Webhely nyelve: magyar  
+        10. Admin felhasználónév: monogram  
+        11. Admin jelszó: P@ssw0rd
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: WordPress felhasználó létrehozása</h2>
+      <img src="/imgs/azure/wp-user.png" alt="WordPress felhasználó létrehozása">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. Jelentkezz be a WordPress admin felületére.  
+        2. Felhasználók → Új hozzáadása.  
+        3. Név: monogram (ékezetek nélkül), jelszó: P@ssword  
+        4. Szerepkör: Szerkesztő  
+        5. Hozzáadás mentése
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Honlap alapbeállítások módosítása</h2>
+      <img src="/imgs/azure/wp-oldalnev.png" alt="Honlap neve">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. Beállítások → Általános.  
+        2. Honlap neve: Monogram  
+        3. Rövid leírás: a nagy világjáró  
+        4. Mentés
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: WordPress sablon testreszabása</h2>
+      <img src="/imgs/azure/wp-fejresz.png" alt="Honlap fejrésze">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. Megjelenés → Sablonok → Aktiváld: Twenty Thirteen  
+        2. Megjelenés → Testreszabás  
+        3. Fejléc szöveg színe: #1E324A  
+        4. Fejléc képe: PanoramaBerlin2021.jpg (középen legyen az út)
       </div>
     </div>
+
     <div class="task-box">
-      <h2>Feladat: Fájl létrehozása és tartalom írása</h2>
-      <img src="linux-feladat.png" alt="Feladat képe">
+      <h2>Feladat: Oldal létrehozása Berlin címmel</h2>
+      <img src="/imgs/azure/wp-berlin.png" alt="Berlin honlap">
       <div class="solution">
         <button class="copy-btn">Copy</button>
-        A megoldás:
-        <br>
-        1. `touch fajl.txt` – fájl létrehozása
-        <br>
-        2. `echo "Hello világ!" > fajl.txt` – tartalom hozzáadása
+        1. WordPress admin felületen: Oldalak → Új hozzáadása  
+        2. Cím: Berlin  
+        3. Kiemelt kép: Berlin_Montage_4.jpg  
+        4. Szöveg: A Wikipedia „Berlin” szócikkének első 2 bekezdése
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Virtuális gép létrehozása Azure-ban</h2>
+      <img src="/imgs/azure/virtual-adatok1.png" alt="Virtuális gép létrehozása">
+      <img src="/imgs/azure/virtual-adatok2.png" alt="Virtuális gép létrehozása">
+      <img src="/imgs/azure/virtual-portok.png" alt="Virtuális gép port">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Lépj az Azure Portálra → Erőforrás létrehozása → Virtuális gép.  
+        2. Erőforráscsoport: VIZSGA  
+        3. Gépnév: WS2019-monogram  
+        4. Régió: Nyugat-Európa  
+        5. Kép: Windows Server 2019 Datacenter – x64 Gen2  
+        6. Méret: 2 vCPU, 8 GB RAM  
+        7. Felhasználónév: monogram  
+        8. Jelszó: P@ssw0rdP@ssw0rd  
+        9. Engedélyezett port: Távoli asztal (RDP)
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Virtuális hálózat létrehozása</h2>
+      <img src="/imgs/azure/virtual-halozat.png" alt="Virtuális hálózat">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Virtuális hálózat neve: bármilyen (pl. vh-monogram)  
+        2. Hálózati cím: 192.168.17.0/24  
+        3. Alhálózat neve: monogram  
+        4. Alhálózati cím: 192.168.17.32/28
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: IP és adapter törlése VM törlésével</h2>
+      <img src="/imgs/azure/virtual-torles.png" alt="IP és adapter törlése">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. VM létrehozásakor pipáld be: „A nyilvános IP-cím és hálózati adapter törlése a virtuális gép törlésekor”.
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Automatikus leállítás beállítása</h2>
+      <img src="/imgs/azure/virtual-leallitas.png" alt="Automatikus leállítás">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. VM → Műveletek → Automatikus leállítás  
+        2. Időpont: 11:00 (CET)  
+        3. Értesítés: Nem szükséges  
+        4. Mentés
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Távoli asztali kapcsolat tesztelése</h2>
+      <img src="/imgs/azure/virtual-csatlakozas.png" alt="Távoli asztali kapcsolat">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Indítsd el a VM-et  
+        2. Kattints: Csatlakozás → RDP → RDP-fájl letöltése  
+        3. Nyisd meg, jelentkezz be a felhasználónév/jelszó párossal  
+        4. Server Manager → Helyi kiszolgáló megnyitása
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Google Drive mappa létrehozása és megosztása</h2>
+      <img src="/imgs/azure/google-mappa.png" alt="DNS beállítások">
+      <img src="/imgs/azure/google-megosztas.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. Nyisd meg a Google Drive-ot  
+        2. Új → Mappa → Név: monogram  
+        3. Jobb gomb → Megosztás → Add hozzá saját ms.gdszeged.hu fiókodat szerkesztőként  
+        4. Mentés
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Dokumentum létrehozása a mappában</h2>
+      <img src="/imgs/azure/google-dokumentum.png" alt="DNS beállítások">
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. A monogram mappán belül kattints: Új → Google Dokumentum  
+        2. Cím: monogram  
+        3. Tartalom: Megennék egy kakaós csigát, meginnék hozzá egy pohár kakaót.
+      </div>
+    </div>
+
+    <div class="task-box">
+      <h2>Feladat: Azure erőforrások leállítása és törlése</h2>
+      <div class="solution">
+        <button class="copy-btn">Copy</button>
+        1. WordPress App Service → Leállítás  
+        2. Töröld: MySQL adatbázis, App Service, App Service-csomag, Felügyelt identitás  
+        3. Virtuális gép → Leállítás → Törlés  
+        4. Töröld a hálózatot és a hálózati biztonsági csoportot  
+        5. Végül töröld az egész VIZSGA nevű erőforráscsoportot  
+        6. Jelentkezz ki az Azure-ból
       </div>
     </div>
   </div>
